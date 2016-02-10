@@ -133,7 +133,7 @@ void XMPWrap::startup()
     samples_.push_back(mod->xxs[i].name);
   }
 
-  if(module_info.comment != 0)
+  if(module_info.comment != nullptr)
   {
     comment_ = module_info.comment;
   }
