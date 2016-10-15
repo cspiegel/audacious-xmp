@@ -78,7 +78,7 @@ void XMPWrap::startup()
     xmp_release_module(ctx);
     xmp_free_context(ctx);
     throw InvalidFile();
-  };
+  }
 
   xmp_get_module_info(ctx, &module_info);
   struct xmp_module *mod = module_info.mod;
