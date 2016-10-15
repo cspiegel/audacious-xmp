@@ -95,10 +95,9 @@ class XMPPlugin : public InputPlugin
       return true;
     }
 
-    Tuple read_tuple(const char *filename, VFSFile &file)
+    bool read_tag(const char *filename, VFSFile &file, Tuple &tuple, Index<char> *)
     {
       auto xmp = open_file(filename, file);
-      Tuple tuple;
 
       if(xmp)
       {
@@ -108,9 +107,13 @@ class XMPPlugin : public InputPlugin
         tuple.set_int(Tuple::Length, xmp->duration());
 
         if(!xmp->title().empty()) tuple.set_str(Tuple::Title, xmp->title().c_str());
-      }
 
-      return tuple;
+        return true;
+      }
+      else
+      {
+        return false;
+      }
     }
 
     bool play(const char *filename, VFSFile &file)
