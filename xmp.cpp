@@ -170,7 +170,7 @@ class XMPPlugin : public InputPlugin
         {
           xmp = new XMPWrap(std::string((char *)filename), panning_amplitude);
         }
-        catch(XMPWrap::InvalidFile)
+        catch(const XMPWrap::InvalidFile &)
         {
         }
       }
@@ -182,7 +182,7 @@ class XMPPlugin : public InputPlugin
         {
           xmp = new XMPWrap(buf.begin(), buf.len(), panning_amplitude);
         }
-        catch(XMPWrap::InvalidFile)
+        catch(const XMPWrap::InvalidFile &)
         {
         }
       }
